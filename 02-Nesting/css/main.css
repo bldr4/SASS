@@ -1,0 +1,15 @@
+.nav {
+  background-color: red;
+}
+.nav ul li {
+  list-style: none;
+}
+.nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+.nav ul li a:hover {
+  color: blue;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,23 @@
+@mixin boxStyle($width:100px, $height:100px, $color:red, $centerX:false, $centerFlex:false){
+    width:$width;
+    height:$height;
+    background-color:$color;
+
+    @if($centerFlex == true){
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+    }
+    @if($centerX == true){
+        margin:0 auto;
+    }
+}
+
+
+@mixin box($width, $height, $prop, $value){
+    width:$width;
+    height:$height;
+    #{$prop}:$value;
+}
+

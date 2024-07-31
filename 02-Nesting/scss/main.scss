@@ -1,0 +1,41 @@
+// Les nesting: est le fait d'imbriquer des sélecteurs CSS les uns dans les autres.
+
+.nav{
+    background-color: red;
+    ul{
+        li{
+            list-style: none;
+            a{
+                text-decoration: none;
+                color: white;
+                &:hover{
+                    color: blue;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

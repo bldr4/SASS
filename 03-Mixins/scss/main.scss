@@ -1,0 +1,92 @@
+
+// Les mixins sont des groupes de prop css que l'on peut réutiliser dans notre code
+
+// Se déclare un peu comme une fonction, peut prendre des paramètres
+@mixin titleStyle($fontSize:50px){
+    font-size: $fontSize;
+    color:blue;
+    text-align: center;
+}
+
+// Les ... permettent de passer un nombre indéfini de paramètres
+@mixin transition($param...){
+    transition:$param
+}
+
+
+nav h1{
+    // On appelle le mixin avec l'instruction @include 
+    // ATTENTION il faut spécifier les paramètres si on en a défini
+@include titleStyle();
+}
+
+
+footer h1{
+@include titleStyle(60px);
+
+@include transition(
+    color 0.5s, 
+    background-color 1s
+    );
+&:hover{
+    color:red;
+    background-color:blue ;
+}
+}
+
+// Exemple 2 
+@mixin boxStyle($width:100px, $height:100px, $color:red, $centerX:false, $centerFlex:false){
+    width:$width;
+    height:$height;
+    background-color:$color;
+
+    // Utiliser une strcture conditionnelle avec l'insctruction @if
+    @if($centerFlex == true){
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+    }
+    @if($centerX == true){
+        margin:0 auto;
+    }
+}
+
+// On peut utiliser un param en tant que prop css en interpolant avec #{}
+@mixin box($width, $height, $prop, $value){
+    width:$width;
+    height:$height;
+    #{$prop}:$value;
+}
+
+.box{
+    @include boxStyle(300px, 300px, blue, true, true);
+    .box2{
+        @include boxStyle(200px, 200px, green, false, true);
+        .box3{
+            @include box(100px, 100px, background-color, yellow);
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

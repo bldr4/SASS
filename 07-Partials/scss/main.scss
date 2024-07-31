@@ -1,0 +1,48 @@
+// L'instruction @import permet d'importer un fichier scss dans un autre fichier scss.
+// ATTENTION PAS D'ENCAPSULATION DE STYLES: Peux entrainer une duplication des styles et des conflits de noms 
+// @import "_footer";
+// @import "_mixins";
+
+
+// Permet d'utiliser l'encapsulation de styles -> On appelle nos éléments via leur nom d'import 
+@use"_compil" as m;
+
+
+body{
+    background-color: #222;
+}
+
+
+.box{
+    @include m.boxStyle(300px, 300px, blue, true, true);
+    .box2{
+        @include m.boxStyle(200px, 200px, green, false, true);
+        .box3{
+            @include m.box(100px, 100px, background-color, yellow);
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

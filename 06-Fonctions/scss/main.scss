@@ -1,0 +1,51 @@
+// Contrairement aux mixins, les fonctions ne génèrent pas de code CSS. Elles retournent une valeur qui peut être utilisée dans une propriété CSS.
+
+
+// définir une fonction avec l'insctruction @function
+@function fontSize($size){
+    @return $size *2;
+}
+
+
+// Appel de la fonction avec son nom et ses params
+h1{
+font-size: fontSize(10px);
+}
+
+
+//  Fonction avec structure conditionnelle
+@function size($size:rand){
+    @if($size == lg){
+        @return 150px;
+    }@else if($size == md){
+        @return 100px;
+    }@else if($size == sm){
+        @return 50px;
+    }@else{
+        @return 10px;
+    }
+}
+
+.box{
+    background-color: red;
+    width: size(lg);
+    height: size(lg);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

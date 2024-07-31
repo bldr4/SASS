@@ -1,0 +1,44 @@
+// Variables avec un global scope ( accessible partout dans le projet )
+$color-primary:orange;
+$color-secondary:blue;
+$color-tertiary:green;
+
+.nav{
+    background-color:$color-secondary;
+}
+.footer h1{
+    // local scope
+    $color-secondary:royalblue;
+    // surcharger la variable global avec !global
+    $color-primary:red!global;
+    background-color:$color-secondary;
+}
+
+// Les listes: un peu comme des tableaux 
+$colors: red, blue, green, yellow;
+
+h2{
+    // appeller la couleur dans la liste avec nth(nomDeLaListe, index)
+    // index commence à 1 !
+    background-color: nth($colors, 1);
+}
+
+// Les maps : un peu comme des tableaux associatifs
+$mapColors: (
+    "primary": red,
+    2: blue,
+    "tertiary": green,
+);
+// Ajouter un élément à la map
+$mapColors: map-merge($mapColors, ("quaternary": yellow));
+// Supprimer un élément de la map
+$mapColors: map-remove($mapColors, 2);
+// vérifier le contenu de la map
+@debug $mapColors;
+
+
+h3{
+    // Appeller un élement de la map avec: 
+    // map-get(nomDeLaMap, clé)
+    background-color: map-get($mapColors, 2);
+}

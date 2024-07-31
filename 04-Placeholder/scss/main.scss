@@ -1,0 +1,35 @@
+
+// Le placeholder symboliser par %, permet à un sélecteur d'hériiter des prop d'un autre sélecteur
+%type{
+    font-size: 30px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+
+h1{
+    // On appelle le placeholder avec l'intruction @extend
+  @extend %type;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

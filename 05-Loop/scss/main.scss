@@ -1,0 +1,60 @@
+
+// Exemple 1: boucle for
+$colors:(
+    1:red,
+    2:blue,
+    3:green,
+    4:yellow,
+    5:orange,
+    6:purple,
+    7:pink,
+);
+
+li{
+ list-style: none;
+ animation:color 10s infinite;
+}
+
+@for $i from 1 through 10{
+    .item#{$i}{
+        font-size: 20px + $i *5;
+        animation-delay: $i*0.4s;
+    }
+}
+
+@keyframes color{
+    @for $i from 1 through 10{
+        #{$i*10}%{
+            color: map-get($colors,$i);
+        }
+    }
+}
+
+
+// Exemple 2 : boucle each
+
+$color2: red, blue, green, yellow, orange, purple, pink;
+
+@each $color in $color2{
+    .para-#{$color}{
+        background-color: $color;
+        font-size: 20px + index($color2,$color)*5;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
